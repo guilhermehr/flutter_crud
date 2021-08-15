@@ -15,11 +15,7 @@ class UserList extends StatelessWidget {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                // users.put(User(
-                //     id: '',
-                //     name: 'Teste',
-                //     email: 'teste@teste.com',
-                //     avatarUrl: ''));
+                users.remove(users.byIndex(0));
               },
               icon: Icon(Icons.add))
         ],

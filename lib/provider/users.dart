@@ -40,4 +40,11 @@ class Users with ChangeNotifier {
 
     notifyListeners();
   }
+
+  void remove(User user) {
+    if (user.id.isNotEmpty) {
+      _items.remove(user.id);
+      notifyListeners();
+    }
+  }
 }
