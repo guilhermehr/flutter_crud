@@ -24,18 +24,19 @@ class Users with ChangeNotifier {
       return;
     }
 
-    final id = Random().nextDouble().toString();
+    if (user.id.trim().isEmpty && _items.containsKey(user.id)) {
+      _items.update(user.id, (_) => user);
+    } else {
+      final id = Random().nextDouble().toString();
 
-    _items.putIfAbsent(
-        id,
-        () => User(
-            id: id,
-            name: user.name,
-            email: user.email,
-            avatarUrl: user.avatarUrl));
-
-    // adicionar
-    // ou alterar
+      _items.putIfAbsent(
+          id,
+          () => User(
+              id: id,
+              name: user.name,
+              email: user.email,
+              avatarUrl: user.avatarUrl));
+    }
 
     notifyListeners();
   }
