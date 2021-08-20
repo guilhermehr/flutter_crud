@@ -24,7 +24,7 @@ class Users with ChangeNotifier {
       return;
     }
 
-    if (user.id.trim().isEmpty && _items.containsKey(user.id)) {
+    if (user.id.trim().isNotEmpty && _items.containsKey(user.id)) {
       _items.update(user.id, (_) => user);
     } else {
       final id = Random().nextDouble().toString();
